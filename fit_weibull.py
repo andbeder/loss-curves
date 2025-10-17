@@ -122,9 +122,10 @@ def main():
     print(f"\nFitting complete!")
     print(f"Sample results (first 5 rows):")
     print(df[['k', 'lambda']].head())
-    print(f"\nWriting results to weibull_fitted_output.csv...")
+    print(f"\nWriting results to weibull_fitted_output.xlsx...")
 
-    df.to_csv('weibull_fitted_output.csv', index=False)
+    # Write to Excel to preserve data types (especially text columns)
+    df.to_excel('weibull_fitted_output.xlsx', index=False, engine='openpyxl')
     print("Done!")
 
 if __name__ == '__main__':
